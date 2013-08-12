@@ -20,8 +20,13 @@ dataSys.corpus <- Corpus(VectorSource(Twitter$contents))
 summary(dataSys.corpus)
 
 ## Cleaning extra spaces
- str2 <- gsub(' {2,}',' ',Twitter$contents)
- #str2 <- gsub(' {2,}',' ',str1)
+removeExtraSpaces <- function(x) gsub(' {2,}',' ',x)
+#str2 <- gsub(' {2,}',' ',str1)
+dataSys.corpus <- tm_map(dataSys.corpus, tolower)
+removeURL <- function(x) gsub("http[[:alnum:]]*", "", x)
+dataSys.corpus <- tm_map(dataSys.corpus, removeURL)
+dataSys.corpus <- tm_map(dataSys.corpus, stripWhitespace)
+dataSys.corpus <- tm_map(dataSys.corpus, removePunctuation)
 
  #strsplit(str2,' ')[[1]]
  #length(strsplit(str2,' ')[[1]])-1
