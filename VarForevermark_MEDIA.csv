@@ -1,0 +1,41 @@
+,Dim 1,Dim 2,Dim 3,Dim 4,Dim 5,,,,,,,,
+Segments_Diamond dreamers,-0.483654585,0.135989835,-0.0866783,0.059556535,-0.620594535,,,,Segments,Diamond dreamers,,,
+Segments_Old romantics,-0.297771215,-0.082143733,0.415576213,0.083624748,3.410386031,,,,Segments,Old romantics,,,
+Segments_Reluctant rich,0.087351163,0.405757375,-0.4546788,-1.143417149,0.402038679,,,,Segments,Reluctant rich,,,
+Segments_Traditional masses,-0.042074469,-0.10919994,0.006564173,0.293376389,-0.975812382,,,,Segments,Traditional masses,,,
+Segments_Unbranded enthusiasts,0.145159181,0.246382904,1.054383161,-1.639446118,-0.048304052,,,,Segments,Unbranded enthusiasts,,,
+Segments_Young Lovers,0.13786066,-0.950783553,-0.138099344,0.230478515,0.416918939,,,,Segments,Young Lovers,,,
+Media1_Read a magazine at least once a week,-0.357895373,0.056298774,-0.047549559,-0.008607179,0.053438517,,,,Media1,Read a magazine at least once a week,,,
+"Media2_Access a social networking site such as Facebook, MySpace or LinkedIn at least once a week",-0.197931604,-0.229267292,-0.065762434,0.010084557,-0.014274989,,,,Media2,"Access a social networking site such as Facebook, MySpace or LinkedIn at least once a week",,,
+Media3_Use a mobile phone to access the Internet at least once a week,-0.179969086,-0.24091381,-0.087918834,-0.011245299,-0.007619354,,,,Media3,Use a mobile phone to access the Internet at least once a week,,,
+Media4_Read a daily newspaper at least once a week,-0.407848601,0.238317635,-0.098896869,0.021807505,-0.019355712,,,,Media4,Read a daily newspaper at least once a week,,,
+Media5_Read a Sunday newspaper at least once a month,-0.412814627,0.270460486,-0.015833743,-0.037035212,-0.044217904,,,,Media5,Read a Sunday newspaper at least once a month,,,
+Media6_Access the Internet for something other than email at least once a week,-0.04780946,-0.042856233,-0.096588269,-0.093611249,0.000373842,,,,Media6,Access the Internet for something other than email at least once a week,,,
+Media7_Go to the cinema/movie theatre at least once a month,-0.412204699,-0.186658981,0.140516657,0.095155889,-0.004687233,,,,Media7,Go to the cinema/movie theatre at least once a month,,,
+Media8_Read a local / regional newspaper at least once a week,-0.425144327,0.169431581,-0.098581835,0.014680979,-0.005766687,,,,Media8,Read a local / regional newspaper at least once a week,,,
+Media9_Read magazines or newspapers online at least once a week,-0.351509946,-0.041836645,-0.077983346,0.039770443,0.046217729,,,,Media9,Read magazines or newspapers online at least once a week,,,
+Media10_Listen to satellite radio at least once a week,-0.55411064,-0.093809833,0.706395016,-0.010473275,-0.000632321,,,,Media10,Listen to satellite radio at least once a week,,,
+Media11_Listen to the radio online at least once a week,-0.46332674,-0.126573428,0.436261823,-0.010765832,0.000804292,,,,Media11,Listen to the radio online at least once a week,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,Dim 1,Dim 2,,
+,,,,,,,,,Diamond dreamers,-0.483654585,0.135989835,0.8,Segments
+,,,,,,,,,Old romantics,-0.297771215,-0.082143733,0.8,Segments
+,,,,,,,,,Reluctant rich,0.087351163,0.405757375,0.8,Segments
+,,,,,,,,,Traditional masses,-0.042074469,-0.10919994,0.8,Segments
+,,,,,,,,,Unbranded enthusiasts,0.145159181,0.246382904,0.8,Segments
+,,,,,,,,,Young Love,0.13786066,-0.950783553,0.8,Segments
+,,,,,,,,,Media1,-0.357895373,0.056298774,0.2,Media
+,,,,,,,,,Media2,-0.197931604,-0.229267292,0.2,Media
+,,,,,,,,,Media3,-0.179969086,-0.24091381,0.2,Media
+,,,,,,,,,Media4,-0.407848601,0.238317635,0.2,Media
+,,,,,,,,,Media5,-0.412814627,0.270460486,0.2,Media
+,,,,,,,,,Media6,-0.04780946,-0.042856233,0.2,Media
+,,,,,,,,,Media7,-0.412204699,-0.186658981,0.2,Media
+,,,,,,,,,Media8,-0.425144327,0.169431581,0.2,Media
+,,,,,,,,,Media9,-0.351509946,-0.041836645,0.2,Media
+,,,,,,,,,Media10,-0.55411064,-0.093809833,0.2,Media
+,,,,,,,,,Media11,-0.46332674,-0.126573428,0.2,Media
+,,,,,,,,,,,,8,

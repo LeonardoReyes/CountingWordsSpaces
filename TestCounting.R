@@ -1,86 +1,73 @@
+# Scripted by: J.L. Reyes Acosta
+# e-mail: leonardo.reyes@mindshareworld.com
+# MindShare WW Business planning
+# SCRIPT TO COUNT DISTANCES BETWEEN ADJETIVES AND NOUNS
+
 
 oldwd<-getwd()
 
-setwd("C:\\Users\\Leonardo.Reyes\\Documents\\Projects\\ForeverMark\\Conversation_Analysis\\Twitter")
+#setwd("C:\\Users\\Leonardo.Reyes\\Documents\\Projects\\ForeverMark\\Conversation_Analysis\\Twitter")
 
 library(tm)
 library(igraph)
-library(reshape2)
 library(rJava)
 library(Snowball)
+if (!require("xlsx")) {
+  install.packages("xlsx")
+  library(xlsx)
+}
+if (!require("stringr")) {
+  install.packages("stringr")
+  library(stringr)
+}
+if (!require("reshape2")) {
+  install.packages("reshape2")
+  library(reshape2)
+}
+source("CountingFunctions.R")
 
 ## loading Sentence
- str1 <- c("Coke is great for lunch it makes me happy","Coke is great makes me happy at lunch")
- Twitter<-Rawdata<-read.csv("sysomos-content-2013-08-06.csv",  header = TRUE,sep = ",") 
-
-##CreatingCorpus
+ #str1 <- c("Coke is great for lunch it makes me happy","Coke is great makes me happy at lunch")
+ #Twitter<-read.csv("sysomos-content-2013-08-06.csv",  header = TRUE,sep = ",") 
 
 
-dataSys.corpus <- Corpus(VectorSource(Twitter$contents))
-summary(dataSys.corpus)
 
-## Cleaning extra spaces
-removeExtraSpaces <- function(x) gsub(' {2,}',' ',x)
-#str2 <- gsub(' {2,}',' ',str1)
-dataSys.corpus <- tm_map(dataSys.corpus, tolower)
-removeURL <- function(x) gsub("http[[:alnum:]]*", "", x)
-makeCombination <- function(x) {
-  y <- gsub('diamonds','diamond', x)
-  y <- gsub('rings','ring', x)
-  return(y)
+Adjectives<-read.xlsx("Polish_Adjectives.xlsx",1) 
+
+PolishBrands<-read.xlsx("PolishBrands.xlsx",1) 
+
+BrandsCount<-list()
+
+for (j in 1:length(PolishBrands$Brand)){
+
+res <- read.xlsx("TwitterConversations.xlsx", j,encoding="UTF-8")  # read the first sheet
+
+##Selecting and cleaning conversations
+
+Content<-res$contents
+
+Content<-removeURL(Content)
+Content<-removepunctuationLeo(Content)
+Content<-removeExtraSpaces(Content)
+Content<-tolowerLeo(Content)
+
+##Counting Spaces
+
+for(i in 1:length(Adjectives$Polish)){
+  TestTwitterSpaces<-CountingSpaces(Content,as.character(Adjectives$Polish[i]),as.character(PolishBrands$Brand[j])) 
+  TestTwitterCounting<-CountingWords(Content,as.character(Adjectives$Polish[i]),as.character(PolishBrands$Brand[j]))
+
+  if (i==1){PolandSpaces<-list(TestTwitterSpaces)
+            PolandWords<-list(TestTwitterCounting)}
+  else{PolandSpaces<-append(PolandSpaces,list(TestTwitterSpaces))
+       PolandWords<-append(PolandWords,list(TestTwitterCounting))}
 }
-dataSys.corpus <- tm_map(dataSys.corpus, removeURL)
-dataSys.corpus <- tm_map(dataSys.corpus, stripWhitespace)
-dataSys.corpus <- tm_map(dataSys.corpus, removePunctuation)
-dataSys.corpus <- tm_map(dataSys.corpus, makeCombination)
-## Stemming
 
 
+PolandSpacesTest<-data.frame(cbind(melt(PolandSpaces)[,3],as.character(Adjectives$English[melt(PolandSpaces)[,4]])))
+colnames(PolandSpacesTest)<-c("Spaces","Adjectives")
 
-dataSys.corpus.copy <- dataSys.corpus
-dataSys.corpus <- tm_map(dataSys.corpus, stemDocument,language='english')
-
-CleanDataFrame<-as.data.frame(dataSys.corpus)
-CleanDataFrame.T <- t(CleanDataFrame[,1:ncol(CleanDataFrame)])
-
-
- #strsplit(str2,' ')[[1]]
- #length(strsplit(str2,' ')[[1]])-1
- 
- #Searching for specific word and counting Spaces
- CountingSpaces <- function(Sentence,Adjective,Brand){
-   for (i in 1:length(Sentence)){
-   RelativePositionAdjective<-which(strsplit(Sentence[i],' ')[[1]] == Adjective)
-   RelativePositionBrand<-which(strsplit(Sentence[i],' ')[[1]] == Brand)
-   SpacesBetween<-RelativePositionAdjective-RelativePositionBrand
-   if (i==1){Output<-as.matrix(SpacesBetween)}else{Output<-as.matrix(rbind(Output,SpacesBetween))}
-   
-   #rownames(Output)<-c(1:length(Sentence))
-   
-   }
-   return(Output)
- }
-
- 
- CountingWords <- function(Sentence,Adjective,Brand){
-   for (i in 1:length(Sentence)){
-     RelativePositionAdjective<-which(strsplit(Sentence[i],' ')[[1]] == Adjective)
-     RelativePositionBrand<-which(strsplit(Sentence[i],' ')[[1]] == Brand)
-     if (length(RelativePositionAdjective)>0 & length(RelativePositionBrand)>0){
-        WordsBetween<-if(RelativePositionAdjective-RelativePositionBrand>0)
-          {RelativePositionAdjective-RelativePositionBrand-1} 
-        else{RelativePositionAdjective-RelativePositionBrand+1}
-        }
-     else{WordsBetween<-as.integer()
-       }
-     if (i==1){Output<-as.matrix(WordsBetween)}else{Output<-as.matrix(rbind(Output,WordsBetween))}
-   }
-   return(Output)
- }
- #Test<-CountingSpaces(str2,"great","Coke")
- #CountingWords(str2,"great","Coke")
- 
-TestTwitterSpaces<-CountingSpaces(CleanDataFrame.T,"ring","diamond") 
-TestTwitterCounting<-CountingWords(CleanDataFrame.T,"ring","diamond") 
-
+eval(parse(text=paste("BrandsCount<-c(BrandsCount,\"",as.character(PolishBrands$Brand[j]),"\"=PolandSpacesTest)",sep ="")))
+eval(parse(text=paste("write.csv(PolandSpacesTest,\"",as.character(PolishBrands$Brand[j]),"Adjectives_Analysis.csv\")",sep ="")))
+}
 

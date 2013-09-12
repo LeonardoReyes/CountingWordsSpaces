@@ -1,0 +1,43 @@
+,,Dim 1,Dim 2,Dim 3,Dim 4,Dim 5,,,,,,,,,,,,,,
+Segments_Diamond dreamers,Diamond dreamers,-0.602950058,0.171748748,0.417266731,-0.122507397,-0.020726178,Segments,,,,,,,,,,Dim 1,Dim 2,,
+Segments_Old romantics,Old romantics,-0.349683628,0.498170078,-0.067404802,-0.163536472,2.261654657,Segments,,,,,,,,,Diamond dreamers,-0.602950058,0.171748748,1,Segments
+Segments_Reluctant rich,Reluctant rich,0.079460695,-0.111201345,0.289632806,1.140339874,-1.31869816,Segments,,,,,,,,,Old romantics,-0.349683628,0.498170078,1,Segments
+Segments_Traditional masses,Traditional masses,0.014374146,-0.050053811,0.17470376,-0.804652759,0.033366734,Segments,,,,,,,,,Reluctant rich,0.079460695,-0.111201345,1,Segments
+Segments_Unbranded enthusiasts,Unbranded enthusiasts,0.142647487,-0.763082746,1.099661074,0.916221236,1.322459924,Segments,,,,,,,,,Traditional masses,0.014374146,-0.050053811,1,Segments
+Segments_Young Lovers,Young Lovers,0.019761195,0.063601517,0.007920541,-0.650181845,-1.173131279,Segments,,,,,,,,,Unbranded enthusiasts,0.142647487,-0.763082746,1,Segments
+For_Aware_Forevermark aware,Aware,-0.449229397,0.061957206,0.844847084,0.386849777,-0.012828311,For_Awar,,,,,,,,,Young Love,0.019761195,0.063601517,1,Segments
+Mind1_I like to take my time in deciding which product to buy,I like to take my time in deciding which product to buy,-0.10912632,-0.116423358,-0.03950438,0.067557909,0.023471956,Mind,,,,,,,,,Forevermark awareness,-0.449229397,0.061957206,2,For_Awar
+Mind2_If I like a product I will buy it no matter what the price,If I like a product I will buy it no matter what the price,-0.461546017,0.167718909,0.135812562,-0.202230699,0.0418477,Mind,,,,,,,,I like to take my time in deciding which product to buy,Mind1,-0.10912632,-0.116423358,0.1,Mind
+Mind3_I like the status that comes from owning certain brands,I like the status that comes from owning certain brands,-0.370599534,0.080236001,0.017917833,-0.109631294,-0.094319574,Mind,,,,,,,,If I like a product I will buy it no matter what the price,Mind2,-0.461546017,0.167718909,0.1,Mind
+Mind4_I love to share my experience of shopping with others,I love to share my experience of shopping with others,-0.307357521,0.014706537,-0.013915477,0.067832879,-0.021509192,Mind,,,,,,,,I like the status that comes from owning certain brands,Mind3,-0.370599534,0.080236001,0.1,Mind
+"Mind5_When I buy diamond jewellery, the quality of the diamond matters more to me than the size of the diamond","When I buy diamond jewellery, the quality of the diamond matters more to me than the size of the diamond",-0.168205641,-0.113232221,-0.040965837,0.012769458,-0.001337936,Mind,,,,,,,,I love to share my experience of shopping with others,Mind4,-0.307357521,0.014706537,0.1,Mind
+Mind6_I prefer designs that are classic/ timeless rather than trendy,I prefer designs that are classic/ timeless rather than trendy,-0.144253036,-0.123824973,-0.12375346,0.026654366,0.065474233,Mind,,,,,,,,"When I buy diamond jewellery, the quality of the diamond matters more to me than the size of the diamond",Mind5,-0.168205641,-0.113232221,0.1,Mind
+Mind7_I rely on magazines to keep me up to date on latest jewellery designs,I rely on magazines to keep me up to date on latest jewellery designs,-0.54341016,0.258707136,-0.020299414,0.085384545,-0.000414117,Mind,,,,,,,,I prefer designs that are classic/ timeless rather than trendy,Mind6,-0.144253036,-0.123824973,0.1,Mind
+Mind8_When a celebrity designs a product I am more likely to buy it,When a celebrity designs a product I am more likely to buy it,-0.602779677,0.345828641,-0.173390251,0.111878729,-0.031543753,Mind,,,,,,,,I rely on magazines to keep me up to date on latest jewellery designs,Mind7,-0.54341016,0.258707136,0.1,Mind
+Mind9_I always visit the brand/ store website to check out their latest jewellery designs,I always visit the brand/ store website to check out their latest jewellery designs,-0.483883009,0.22910426,0.00110875,0.029075916,0.057917821,Mind,,,,,,,,When a celebrity designs a product I am more likely to buy it,Mind8,-0.602779677,0.345828641,0.1,Mind
+Mind10_It's important to me that salespeople are knowledgeable about products that they are selling,It's important to me that salespeople are knowledgeable about products that they are selling,-0.112481211,-0.194222724,-0.021266462,-0.02287757,-0.050634528,Mind,,,,,,,,I always visit the brand/ store website to check out their latest jewellery designs,Mind9,-0.483883009,0.22910426,0.1,Mind
+Mind11_I tend to go back to the same store if I buy diamond jewellery,I tend to go back to the same store if I buy diamond jewellery,-0.251585348,-0.191545326,0.042678963,-0.339325953,0.136392436,Mind,,,,,,,,It's important to me that salespeople are knowledgeable about products that they are selling,Mind10,-0.112481211,-0.194222724,0.1,Mind
+Mind12_Service of store personnel is an important part of my decision to shop there,Service of store personnel is an important part of my decision to shop there,-0.135837531,-0.196882404,-0.025687601,0.01341346,-0.046914738,Mind,,,,,,,,I tend to go back to the same store if I buy diamond jewellery,Mind11,-0.251585348,-0.191545326,0.1,Mind
+,,,,,,,,,,,,,,,Service of store personnel is an important part of my decision to shop there,Mind12,-0.135837531,-0.196882404,0.1,Mind
+,,,,,,,,,,,,,,,,,,,10,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,Segments,Diamond dreamers,,,,,,,,,,
+,,,,,,,,,Segments,Old romantics,,,,,,,,,,
+,,,,,,,,,Segments,Reluctant rich,,,,,,,,,,
+,,,,,,,,,Segments,Traditional masses,,,,,,,,,,
+,,,,,,,,,Segments,Unbranded enthusiasts,,,,,,,,,,
+,,,,,,,,,Segments,Young Lovers,,,,,,,,,,
+,,,,,,,,,For,Aware,Forevermark aware,,,,,,,,,
+,,,,,,,,,Mind1,I like to take my time in deciding which product to buy,,,,,,,,,,
+,,,,,,,,,Mind2,If I like a product I will buy it no matter what the price,,,,,,,,,,
+,,,,,,,,,Mind3,I like the status that comes from owning certain brands,,,,,,,,,,
+,,,,,,,,,Mind4,I love to share my experience of shopping with others,,,,,,,,,,
+,,,,,,,,,Mind5,"When I buy diamond jewellery, the quality of the diamond matters more to me than the size of the diamond",,,,,,,,,,
+,,,,,,,,,Mind6,I prefer designs that are classic/ timeless rather than trendy,,,,,,,,,,
+,,,,,,,,,Mind7,I rely on magazines to keep me up to date on latest jewellery designs,,,,,,,,,,
+,,,,,,,,,Mind8,When a celebrity designs a product I am more likely to buy it,,,,,,,,,,
+,,,,,,,,,Mind9,I always visit the brand/ store website to check out their latest jewellery designs,,,,,,,,,,
+,,,,,,,,,Mind10,It's important to me that salespeople are knowledgeable about products that they are selling,,,,,,,,,,
+,,,,,,,,,Mind11,I tend to go back to the same store if I buy diamond jewellery,,,,,,,,,,
+,,,,,,,,,Mind12,Service of store personnel is an important part of my decision to shop there,,,,,,,,,,

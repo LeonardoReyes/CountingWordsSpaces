@@ -1,42 +1,50 @@
+# Scripted by: J.L. Reyes Acosta
+# e-mail: leonardo.reyes@mindshareworld.com
+# MindShare WW Business planning
+
+#CORRESPONDANCE ANALYSIS FOR CROSSTABS
+
+
+
 # load packages
 require(FactoMineR)
 require(ggplot2)
 
 
 # load data MCA1
-Rawdata<-read.table("MCA.csv", sep = ",")
-data<-Rawdata[2:8,2:17]
-colnames(data)<-as.matrix(Rawdata[1,2:17])
-rownames(data)<-as.matrix(Rawdata[2:8,1])
+Rawdata<-read.csv("MCA_FOREVER_MEDIA.csv", sep = ",")
+data<-Rawdata[,1:12]
+#colnames(data)<-as.matrix(Rawdata[1,2:14])
+rownames(data)<-as.matrix(Rawdata[,1])
 
 # load data MCA2
-Rawdata<-read.table("MCA2.csv", sep = ",")
-data2<-Rawdata[2:16,2:5]
-colnames(data2)<-as.matrix(Rawdata[1,2:5])
-rownames(data2)<-as.matrix(Rawdata[2:16,1])
+# Rawdata<-read.table("MCA2.csv", sep = ",")
+# data2<-Rawdata[2:16,2:5]
+# colnames(data2)<-as.matrix(Rawdata[1,2:5])
+# rownames(data2)<-as.matrix(Rawdata[2:16,1])
 
 #data(tea)
 # select these columns
 #newtea = tea[,c("Tea","How","how","sugar","where","always")]
 # number of categories per variable
 cats1 = apply(data, 2, function(x) nlevels(as.factor(x)))
-cats2 = apply(data2, 2, function(x) nlevels(as.factor(x)))
+#cats2 = apply(data2, 2, function(x) nlevels(as.factor(x)))
 
 # apply MCA
-mca1 <- MCA(data, graph=TRUE)
-completed <- imputeMCA(data)
+mca1 <- MCA(data)
+#completed <- imputeMCA(data)
 res.mca <- MCA(data)
 summary(res.mca)
 plot(res.mca,invisible=c("var","quali.sup","quanti.sup"),cex=0.7)
 plot(res.mca,invisible=c("ind","quali.sup","quanti.sup"),cex=0.8)
 plot(res.mca,invisible=c("quali.sup","quanti.sup"),cex=0.8)
-dimdesc(res.mca)
-plotellipses(res.mca,keepvar=1:4)
-plotellipses(res.mca,keepvar="Female")
+dimdesc(res.mca,axes=1:2)
+plotellipses(res.mca,keepvar=4:7)
+#plotellipses(res.mca,keepvar="Female")
 
 #Save MCA
-write.table(res.mca$var$coord,file="VarCarlsberg.csv",sep=",")
-write.table(res.mca$ind$coord,file="IndCarlsberg.csv",sep=",")
+write.table(res.mca$var$coord,file="VarForevermark_MEDIA.csv",sep=",")
+write.table(res.mca$ind$coord,file="IndForevermark_MEDIA.csv",sep=",")
 
 mca2 = MCA(data2, graph=TRUE)
 # table of eigenvalues
