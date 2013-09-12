@@ -5,6 +5,7 @@
 #CORRESPONDANCE ANALYSIS FOR CROSSTABS
 
 
+
 # load packages
 require(FactoMineR)
 require(ggplot2)
