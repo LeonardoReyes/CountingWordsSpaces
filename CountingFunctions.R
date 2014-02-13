@@ -11,7 +11,8 @@
 ## Cleaning extra spaces
 removeExtraSpaces <- function(x) gsub(' {2,}',' ',x)
 removepunctuationLeo <- function(x)str_replace_all(x, "[(),.:;@#!?/\\*-_]", "")                
-
+FuseBrands<-function(x,y,z){gsub(paste(y,z), paste(y,"-",z,sep=""),x)
+return(x)}
 #str2 <- gsub(' {2,}',' ',str1)
 #dataSys.corpus <- tm_map(dataSys.corpus, tolower)
 removeURL <- function(x) gsub("http://[[:alnum:]]*", "", x)
@@ -31,9 +32,9 @@ tolowerLeo<-function(x){y<-x
 #Searching for specific word and counting Spaces
 CountingSpaces <- function(Sentence,Adjective,Brand){
   for (i in 1:length(Sentence)){
-    RelativePositionAdjective<-which(strsplit(Sentence[i],' ')[[1]] == Adjective)
-    RelativePositionBrand<-which(strsplit(Sentence[i],' ')[[1]] == Brand)
-    SpacesBetween<-RelativePositionAdjective-RelativePositionBrand
+    try(RelativePositionAdjective<-which(strsplit(Sentence[i],' ')[[1]] == Adjective))
+    try(RelativePositionBrand<-which(strsplit(Sentence[i],' ')[[1]] == Brand))
+    try(SpacesBetween<-RelativePositionAdjective-RelativePositionBrand)
     if (i==1){Output<-as.matrix(SpacesBetween)}else{Output<-as.matrix(rbind(Output,SpacesBetween))}
     
     #rownames(Output)<-c(1:length(Sentence))
