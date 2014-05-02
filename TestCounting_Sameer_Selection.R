@@ -35,11 +35,12 @@ if (!require("ggplot2")) {
 source("CountingFunctions.R")
 
 ## loading Sentence
+#str1 <- c("Coke is great for lunch it makes me happy","Coke is great makes me happy at lunch")
+#Twitter<-read.csv("sysomos-content-2013-08-06.csv",  header = TRUE,sep = ",") 
 
-setwd("C:\\Users\\Leonardo.Reyes\\Documents\\Projects\\CountingWords\\CountingWordsSpaces\\Dyson")
+setwd("C:\\Users\\Leonardo.Reyes\\Documents\\Projects\\CountingWords\\CountingWordsSpaces\\MS_USA")
 
-Adjectives<-read.xlsx("
-                      ",1) 
+Adjectives<-read.xlsx("Adjectives.xlsx",1) 
 
 Brands<-read.xlsx("Brands.xlsx",1) 
 
@@ -50,7 +51,7 @@ colnames(MasterTable)<- as.character(Adjectives$English)
 MasterTable <- as.table(MasterTable)
 
 for (j in 1:length(Brands$Brand)){
-  setwd("C:\\Users\\Leonardo.Reyes\\Documents\\Projects\\CountingWords\\CountingWordsSpaces\\Dyson")
+  setwd("C:\\Users\\Leonardo.Reyes\\Documents\\Projects\\CountingWords\\CountingWordsSpaces\\Carlsberg")
   res <- read.csv(paste("Twitter_Conversations_",j,".csv",sep=""))  # read the first sheet
   ##Selecting and cleaning conversations
   
@@ -61,8 +62,13 @@ for (j in 1:length(Brands$Brand)){
   Content<-removeExtraSpaces(Content)
   Content<-tolowerLeo(Content)
   
-  if(j==1){Content<-gsub("big ass fans","big_ass_fans",Content)}
+  if(j==3){Content<-gsub("jose cuervo","jose_cuervo",Content)
+           Content<-gsub("jose-cuervo","jose_cuervo",Content)}
   
+  if(j==4){Content<-gsub("jack daniels","jack_daniels",Content)
+           Content<-gsub("jack daniels","jack_daniels",Content)}
+  if(j==6){Content<-gsub("sailor jerry","sailor_jerry",Content)
+           Content<-gsub("sailor jerry","sailor_jerry",Content)}
   
   ##Counting Spaces
   
@@ -83,27 +89,29 @@ for (j in 1:length(Brands$Brand)){
   colnames(SpacesTest)<-c("Spaces","Adjectives")
   
   eval(parse(text=paste("BrandsCount<-c(BrandsCount,\"",as.character(Brands$Brand[j]),"\"=SpacesTest)",sep ="")))
-  
+  #eval(parse(text=paste("write.csv(SpacesTest,\"",as.character(Brands$Brand[j]),"Adjectives_Analysis.csv\")",sep ="")))
 }
 
 
 ## Correspondence Analysis
-write.csv(MasterTable, file = "Vacuums_Adjectives_RAW.csv",row.names=TRUE) # Test for Sameer
+#write.csv(MasterTable, file = "Soft_drinks_Adjectives_RAW.csv",row.names=TRUE) # Test for Sameer
+MasterDistill <- read.csv("Soft_drinks_Adjectives_Distilled.csv",row.names=1)  # Test for Sameer
 
-df<-MasterTable[,colSums(MasterTable)>1]
-df<-df[,c(1:7,9:10,14:15,17:26)]
+res<-CA(MasterDistill, ncp=5, row.sup=NULL, col.sup=NULL, graph = TRUE)
+#res<-CA(MasterTable, ncp=5, row.sup=NULL, col.sup=NULL, graph = TRUE)
+# plot.CA(res, axes=c(1, 2), col.row="red", col.col="blue", label=c("col","col.sup", "row", "row.sup"),cex=.7)
 
-res<-CA(df, ncp=5, row.sup=NULL, col.sup=NULL, graph = TRUE)
+df.gg <- data.frame(dim1 = c(res$col$coord[,1],res$row$coord[,1]), 
+                    dim2 = c(res$col$coord[,2],res$row$coord[,2]),
+                    type=c(colnames(mytable),rownames(mytable)))
+
+#setwd(oldwd)
+write.csv(df.gg, file = "Map_Adjectives_Distilled_1.csv",row.names=FALSE)
+
 
 df.gg <- data.frame(dim1 = c(res$col$coord[,1],res$row$coord[,1]), 
                     dim2 = c(res$col$coord[,2],res$row$coord[,2]),
                     type=c(rep(1,length(res$col$coord[,1])),rep(2,length(res$row$coord[,1]))))
-
-#setwd(oldwd)
-write.csv(df.gg, file = "Map_Adjectives_Distilled.csv",row.names=TRUE)
-
-
-##PLotting results
 
 theme_set(theme_grey(25))
 m <- ggplot(df.gg,aes(x=dim1,y=dim2,group=factor(type)))

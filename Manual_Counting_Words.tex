@@ -1,0 +1,129 @@
+
+
+\documentclass[nohyper,a4paper]{my_MindShare}
+%\special{papersize=210mm,297mm}
+
+
+\usepackage{mdwlist}
+\usepackage{pdflscape}
+\usepackage{floatrow}
+\usepackage[svgnames]{xcolor}
+\usepackage{tocloft}
+\usepackage[hidelinks]{hyperref}
+\usepackage{longtable}
+\usepackage{afterpage}
+\usepackage{capt-of}
+\usepackage{eso-pic}
+\usepackage{multirow}
+\usepackage{microtype} % Improves character and word spacing
+\usepackage{lipsum} % Inserts dummy text
+\usepackage{booktabs} % Better horizontal rules in tables
+\usepackage{graphicx} % Needed to insert images into the document
+
+
+
+\hypersetup{colorlinks=true,
+urlcolor=blue,
+linkcolor=title}
+%% Commands necesary for Cover Page
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth*2,height=\paperheight,%
+keepaspectratio]{CoverPage.png}%
+\vfill
+}}}
+
+\newcommand\MindLogoCover{%
+\put(15,670){%
+\includegraphics[scale=0.25]{MindshareLogoWhite.png}% If desired to change cover page image, insert name of the file here
+}}
+
+
+
+
+
+\begin{document}
+
+%% THIS CODE IS USED TO ARRANGE THE COVER PAGE
+%% TAMPER WITH IT AT YOUR OWN RISK    |;-)
+
+%\newgeometry{left=3cm,bottom=0.1cm}
+\AddToShipoutPicture*{\BackgroundPic}
+\AddToShipoutPicture*{\MindLogoCover}
+\definecolor{CoverTitle}{RGB}{255,250,250}
+\definecolor{title}{RGB}{45,12,75}
+\definecolor{SubtitleCover}{RGB}{90,90,100}
+\renewcommand{\contentsname}{\textcolor{title}{Content}}
+\makeatletter
+\let\stdl@section\l@section
+\renewcommand*{\l@section}[2]{%
+  \stdl@section{\textcolor{title}{#1}}{\textcolor{title}{#2}}}
+\let\stdl@subsection\l@subsection
+\renewcommand*{\l@subsection}[2]{%
+  \stdl@subsection{\textcolor{SubtitleCover}{#1}}{\textcolor{SubtitleCover}{#2}}}
+\makeatother
+
+%Change to modify Author and position
+
+\restoregeometry
+
+
+
+\renewcommand{\contentsname}{\textcolor{title}{Contents}}
+\renewcommand\cftchapfont{\color{title}\bfseries}
+%%% Use this if you want to have the client logo in all pages
+\AddToShipoutPicture{\ClientLogoCover}
+
+%%% Cover page
+\section*{\Huge{\textcolor{CoverTitle}{Brief installation and walk-through
+manual, for Counting Words}}}
+\begin{flushleft}
+
+
+\LARGE{\textcolor{CoverTitle}{Beta 0.2}}\\[19.5cm]
+\Large\bfseries {\textcolor{CoverTitle}{Leonardo Reyes Acosta}}\\[5pt]
+\Large\bfseries {\textcolor{CoverTitle}{MindShare WW-Business planing}}\\[5pt]
+\Large\bfseries {\textcolor{CoverTitle}{1 St Giles High Street}}\\[5pt]
+\Large\bfseries {\textcolor{CoverTitle}{London WC2H 8AR}}\\[5pt]
+\Large\bfseries {\textcolor{CoverTitle}{www.mindshareworld.com}}
+\end{flushleft}
+
+
+
+\setcounter{tocdepth}{3}
+%%\tableofcontents
+
+
+%%% Begin document
+\section{What is Counting Words?}
+CountingWords is a clever piece of script that allows a quick analysis of twitter conversations. It is based on the counting of frequencies/distances of adjectives as compared to brands or product names, and outputs a correspondence map or a multi dimension reduction (MDR) map. CountigWords is very useful to analyze general perceptions on topics or brand positioning in the social-digital landscape.
+
+\section{Installation}
+
+This brief manual is written under the assumption that you do not have installed R in your system. Thus if you do have it please skip to the steps after the installation.
+
+\begin{enumerate}
+	\item Go to the following website and install \textbf{R} following the default installation:
+	
+	\begin{itemize}
+		\item http://cran.r-project.org/bin/windows/base/
+	\end{itemize}
+	
+	\item Go to the following website and install "\textbf{R Studio}" (GUI) following the default installation:
+	
+	\begin{itemize}
+		\item http://www.rstudio.com/
+	\end{itemize}
+	
+	\item Create a folder in your C: drive and name it \emph{Demo}, then unzip the \emph{Demo.zip} file in it.
+	\item Open the \textbf{R studio}  program
+	\item Open the file \emph{TestCounting.R} by double clicking it or from the \textbf{R studio} interface.
+	\item Select the whole script (Ctrl + A) and the hit Ctrl+ENTER to execute the code. It will take approximately 5 minutes to run the code, however if it is the first time you run the script, it might take longer than that as the code is downloading and installing the needed packages for the analysis and plotting.
+	\item	If successfully executed, a correspondence map must be displayed in the bottom right corner of your screen.
+\end{enumerate}
+
+
+\end{document} ​
